@@ -1,7 +1,7 @@
-javac -d ../class ../src/Etudiant.java
+javac -d ../class ../src/Promotion.java
 
-javac -d ../class ../src/ScenarioEtudiant.java
+javac -d ../class ../src/ScenarioPromotion.java
 
-java ScenarioEtudiant
+java ScenarioPromotion
 
 pause
