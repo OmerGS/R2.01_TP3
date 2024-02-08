@@ -58,6 +58,17 @@ public class Etudiant {
         }
     }
 
+    public String[] getMATIERES(){
+        return(this.MATIERES);
+    }
+
+    public double[] getCOEFFICIANTS(){
+        return(this.COEFFICIANTS);
+    }
+
+    public double[][] getBulletin(){
+        return(this.bulletin);
+    }
     
     /**
      * Gets the name of the student.

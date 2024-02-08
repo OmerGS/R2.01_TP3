@@ -55,7 +55,7 @@ public class Promotion {
     }
 
     public double moyenneMin(){
-        double moyenneMin = 0;
+        double moyenneMin = 20;
         if(this.listeEtudiants.length != 0){
             for (int i = 0; i < listeEtudiants.length; i++) {
                 if(listeEtudiants[i].moyenneGenerale() < moyenneMin){
@@ -106,4 +106,30 @@ public class Promotion {
         return(etudiantChercher);
     }
 
+    public double moyenneMatiere(int i) {
+        double sommeMoyenne = 0;
+        double moyenne = 0;
+
+        if(this.listeEtudiants.length != 0){
+            if(i > 0 && i < this.listeEtudiants[0].getMATIERES().length){
+                for(int j = 0; j < this.listeEtudiants.length; j++){
+                    sommeMoyenne += this.listeEtudiants[j].moyenneMatiere(i);
+                }
+                moyenne = sommeMoyenne/this.listeEtudiants.length;
+            } else {
+                System.out.println("La matière renseignée n'est pas disponible !");
+            }
+        } else {
+            System.out.println("Le tableau est vide !");
+        }
+        return(moyenne);
+    }
+
+    public String toString() {
+        String stringFinal;
+
+        stringFinal = ("Promo : " + this.getNom() + "\nNombre Etudiant : " + this.listeEtudiants.length + "\nMoyenne : " + this.moyenne());
+
+        return(stringFinal);
+    }
 }

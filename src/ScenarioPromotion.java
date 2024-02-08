@@ -13,13 +13,23 @@ public class ScenarioPromotion {
         but2 = new Promotion("but2info", creationTableauEtudiant());
         but3 = new Promotion("but3info", creationTableauEtudiant());
 
-        testConstructeur();
-        separationMethode();
-        testGetMajor();
-        separationMethode();
-        testGetNom();
-        separationMethode();
-        testSetNom();
+        //testConstructeur();
+        //separationMethode();
+        //testGetMajor();
+        //separationMethode();
+        //testGetNom();
+        //separationMethode();
+        //testSetNom();
+        //separationMethode();
+        //testMoyenne();
+        //separationMethode();
+        //moyenneMax();
+        //separationMethode();
+        //moyenneMin();
+        //separationMethode();
+        testGetEtudiant();
+
+        
     }
 
     private static void separationMethode(){
@@ -98,6 +108,7 @@ public class ScenarioPromotion {
     }
     
     public static void testGetNom(){
+        System.out.println(" *** testGetNom *** ");
         Promotion promo;
         Etudiant[] liste = creationTableauEtudiant();
 
@@ -121,7 +132,7 @@ public class ScenarioPromotion {
         testCasGetNom(promo, "IUT3Info");
     }
 
-    public static void testCasGetNom(Promotion promo, String nom){
+    private static void testCasGetNom(Promotion promo, String nom){
         if(nom.equals(promo.getNom())){
             System.out.println("Reussi");
         } else {
@@ -130,6 +141,7 @@ public class ScenarioPromotion {
     }
 
     public static void testSetNom(){
+        System.out.println(" *** testSetNom *** ");
         Promotion promo;
         Etudiant[] liste = creationTableauEtudiant();
         String ancienNom = "DUT";
@@ -151,7 +163,7 @@ public class ScenarioPromotion {
         testCasSetNom(promo, ancienNom, "B");
     }
 
-    public static void testCasSetNom(Promotion promo, String ancienNom, String nouveauNom){
+    private static void testCasSetNom(Promotion promo, String ancienNom, String nouveauNom){
         if(promo.getNom().equals(nouveauNom) || promo.getNom().equals(ancienNom)){
             System.out.println("Reussi");
         } else {
@@ -162,6 +174,117 @@ public class ScenarioPromotion {
             System.out.println("setNom : Ancien nom est egale au nouveau nom");
         }
     }
+
+    public static void testMoyenne(){
+        System.out.println(" *** testMoyenne *** ");
+        double note = 0;
+
+        note = but1.moyenne();
+        testCasMoyenne(note);
+        
+        separationTest();
+        
+        note = but2.moyenne();
+        testCasMoyenne(note);
+
+        separationTest();
+
+        note = but3.moyenne();
+        testCasMoyenne(note);
+    }
+
+    private static void testCasMoyenne(double note){
+        System.out.print("Moyenne : " + note);
+        if(note > 20 || note < 0){
+            System.out.println(" | Erreur");
+        } else {
+            System.out.println(" | Reussi");
+        }
+    }
+
+    public static void moyenneMax(){
+        System.out.println(" *** testMoyenneMax *** ");
+        double note = 0;
+
+        note = but1.moyenneMax();
+        testCasMoyenneMax(note);
+        
+        separationTest();
+        
+        note = but2.moyenneMax();
+        testCasMoyenneMax(note);
+
+        separationTest();
+
+        note = but3.moyenneMax();
+        testCasMoyenneMax(note);
+    }
+
+    private static void testCasMoyenneMax(double note){
+        System.out.print("Moyenne : " + note);
+        if(note > 20 || note < 0){
+            System.out.println(" | Erreur");
+        } else {
+            System.out.println(" | Reussi");
+        }
+    }
+
+    public static void moyenneMin(){
+        System.out.println(" *** testMoyenneMin *** ");
+        double note = 0;
+
+        note = but1.moyenneMin();
+        testCasMoyenneMin(note);
+        
+        separationTest();
+        
+        note = but2.moyenneMin();
+        testCasMoyenneMin(note);
+
+        separationTest();
+
+        note = but3.moyenneMin();
+        testCasMoyenneMin(note);
+    }
+
+    private static void testCasMoyenneMin(double note){
+        System.out.print("Moyenne : " + note);
+        if(note > 20 || note < 0){
+            System.out.println(" | Erreur");
+        } else {
+            System.out.println(" | Reussi");
+        }
+    }
+
+    public static void testGetEtudiant(){
+        System.out.println(" *** testEtudiant *** ");
+        
+        Etudiant[] listeGetEtudiant = new Etudiant[2];
+        listeGetEtudiant[0] = new Etudiant("Jean", matieres, coefficients, 3);
+        listeGetEtudiant[1] = new Etudiant("Martin", matieres, coefficients, 3);
+        Promotion testGetEtudiant = new Promotion("JeanMartin", listeGetEtudiant);
+
+
+        System.out.println("On cherche Jean : \n" + testGetEtudiant.getEtudiant("Jean"));
+        System.out.println("On cherche Martin : \n" + testGetEtudiant.getEtudiant("Martin"));
+        System.out.println("On cherche Omer : \n" + testGetEtudiant.getEtudiant("Omer"));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -185,7 +308,7 @@ public class ScenarioPromotion {
     }
 
     public static Etudiant[] creationTableauEtudiant(){
-        Etudiant[] listeEtudiantBut1 = new Etudiant[100];
+        Etudiant[] listeEtudiantBut1 = new Etudiant[50];
         
         for(int i = 0; i < listeEtudiantBut1.length; i++){
             String nom = generateNomPersonne();
