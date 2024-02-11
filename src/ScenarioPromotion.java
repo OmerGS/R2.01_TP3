@@ -13,23 +13,25 @@ public class ScenarioPromotion {
         but2 = new Promotion("but2info", creationTableauEtudiant());
         but3 = new Promotion("but3info", creationTableauEtudiant());
 
-        //testConstructeur();
-        //separationMethode();
-        //testGetMajor();
-        //separationMethode();
-        //testGetNom();
-        //separationMethode();
-        //testSetNom();
-        //separationMethode();
-        //testMoyenne();
-        //separationMethode();
-        //moyenneMax();
-        //separationMethode();
-        //moyenneMin();
-        //separationMethode();
+        testConstructeur();
+        separationMethode();
+        testGetMajor();
+        separationMethode();
+        testGetNom();
+        separationMethode();
+        testSetNom();
+        separationMethode();
+        testMoyenne();
+        separationMethode();
+        moyenneMax();
+        separationMethode();
+        moyenneMin();
+        separationMethode();
         testGetEtudiant();
-
-        
+        separationMethode();
+        testMoyenneMatiere();
+        separationMethode();
+        testToString();
     }
 
     private static void separationMethode(){
@@ -257,22 +259,52 @@ public class ScenarioPromotion {
     }
 
     public static void testGetEtudiant(){
-        System.out.println(" *** testEtudiant *** ");
+        System.out.println(" *** testGetEtudiant *** ");
         
-        Etudiant[] listeGetEtudiant = new Etudiant[2];
-        listeGetEtudiant[0] = new Etudiant("Jean", matieres, coefficients, 3);
-        listeGetEtudiant[1] = new Etudiant("Martin", matieres, coefficients, 3);
-        Promotion testGetEtudiant = new Promotion("JeanMartin", listeGetEtudiant);
-
-
-        System.out.println("On cherche Jean : \n" + testGetEtudiant.getEtudiant("Jean"));
-        System.out.println("On cherche Martin : \n" + testGetEtudiant.getEtudiant("Martin"));
-        System.out.println("On cherche Omer : \n" + testGetEtudiant.getEtudiant("Omer"));
+        System.out.println("On cherche Marie Lefevre : \n" + but1.getEtudiant("Marie Lefevre"));
+        System.out.println("On cherche Sophie Petit : \n" + but1.getEtudiant("Sophie Petit"));
+        System.out.println("On cherche Lucas Campion : \n" + but1.getEtudiant("Lucas Campion"));
     }
 
+    public static void testMoyenneMatiere(){
+        System.out.println(" *** testMoyenneMatiere *** ");
+        double note = 0;
 
+        note = but1.moyenneMatiere(1);
+        testCasMoyenneMatiere(note);
+        
+        separationTest();
+        
+        note = but2.moyenneMatiere(2);
+        testCasMoyenneMatiere(note);
 
+        separationTest();
 
+        note = but3.moyenneMatiere(3);
+        testCasMoyenneMatiere(note);
+    }
+
+    private static void testCasMoyenneMatiere(double note){
+        System.out.print("Moyenne : " + note);
+        if(note > 20 || note < 0){
+            System.out.println(" | Erreur");
+        } else {
+            System.out.println(" | Reussi");
+        }
+    }
+
+    public static void testToString(){
+        System.out.println(" *** testToString *** ");
+        System.out.println(but1.toString());
+
+        separationTest();
+
+        System.out.println(but2.toString());
+
+        separationTest();
+
+        System.out.println(but3.toString());
+    }
 
 
 
