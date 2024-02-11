@@ -1,9 +1,18 @@
+/**
+ * La classe Promotion2 représente une promotion d'étudiants.
+ * @author O.Gunes
+ */
 public class Promotion2 {
-    private String nom;
-    private Etudiant[] listeEtudiants;
-    private int nbInscrits; // nouvel attribut pour suivre le nombre d'étudiants inscrits
+    private String nom; // Le nom de la promotion
+    private Etudiant[] listeEtudiants; // La liste des étudiants inscrits
+    private int nbInscrits; // Le nombre d'étudiants inscrits dans la promotion
 
-    // Premier constructeur modifié pour initialiser nbInscrits avec la taille de listeEtudiants
+    /**
+     * Constructeur pour initialiser une promotion avec un nom et une liste d'étudiants.
+     *
+     * @param nom            Le nom de la promotion.
+     * @param listeEtudiants La liste des étudiants de la promotion.
+     */
     public Promotion2(String nom, Etudiant[] listeEtudiants) {
         if (nom == null) {
             System.out.println("Constructeur : Erreur de nom");
@@ -19,7 +28,12 @@ public class Promotion2 {
         }
     }
 
-    // Nouveau constructeur prenant seulement le nom de la promotion et une taille maximum pour le tableau
+    /**
+     * Constructeur pour initialiser une promotion avec un nom et une taille maximale pour le tableau des étudiants.
+     *
+     * @param nom       Le nom de la promotion.
+     * @param tailleMax La taille maximale pour le tableau des étudiants.
+     */
     public Promotion2(String nom, int tailleMax) {
         if (nom == null) {
             System.out.println("Constructeur : Erreur de nom");
@@ -30,7 +44,11 @@ public class Promotion2 {
         }
     }
 
-    // Méthode pour inscrire un nouvel étudiant
+    /**
+     * Méthode pour inscrire un nouvel étudiant dans la promotion.
+     *
+     * @param etudiant L'étudiant à inscrire.
+     */
     public void inscrire(Etudiant etudiant) {
         if (this.nbInscrits < this.listeEtudiants.length) {
             this.listeEtudiants[this.nbInscrits] = etudiant;
@@ -40,12 +58,20 @@ public class Promotion2 {
         }
     }
 
-    // Méthode pour obtenir le nom de la promotion
+    /**
+     * Méthode pour obtenir le nom de la promotion.
+     *
+     * @return Le nom de la promotion.
+     */
     public String getNom() {
         return this.nom;
     }
 
-    // Méthode pour définir le nom de la promotion
+    /**
+     * Méthode pour définir le nom de la promotion.
+     *
+     * @param nom Le nouveau nom de la promotion.
+     */
     public void setNom(String nom) {
         if (nom == null) {
             System.out.println("setNom : Erreur de Nom");
@@ -54,7 +80,11 @@ public class Promotion2 {
         }
     }
 
-    // Méthode moyenne modifiée pour utiliser nbInscrits au lieu de la longueur du tableau
+    /**
+     * Méthode pour calculer la moyenne générale de la promotion.
+     *
+     * @return La moyenne générale de la promotion.
+     */
     public double moyenne() {
         double sommeMoyenne = 0;
         double moyenne = 0;
@@ -68,8 +98,11 @@ public class Promotion2 {
         return moyenne;
     }
 
-    // Méthodes non modifiées
-
+    /**
+     * Méthode pour obtenir la moyenne maximale parmi les étudiants inscrits.
+     *
+     * @return La moyenne maximale parmi les étudiants inscrits.
+     */
     public double moyenneMax() {
         double moyenneMax = 0;
         if (this.nbInscrits != 0) {
@@ -84,6 +117,11 @@ public class Promotion2 {
         return moyenneMax;
     }
 
+    /**
+     * Méthode pour obtenir la moyenne minimale parmi les étudiants inscrits.
+     *
+     * @return La moyenne minimale parmi les étudiants inscrits.
+     */
     public double moyenneMin() {
         double moyenneMin = 20;
         if (this.nbInscrits != 0) {
@@ -98,6 +136,11 @@ public class Promotion2 {
         return moyenneMin;
     }
 
+    /**
+     * Méthode pour obtenir l'étudiant avec la meilleure moyenne dans la promotion.
+     *
+     * @return L'étudiant avec la meilleure moyenne.
+     */
     public Etudiant getMajor() {
         Etudiant major = null;
         if (this.nbInscrits != 0) {
@@ -114,6 +157,12 @@ public class Promotion2 {
         return major;
     }
 
+    /**
+     * Méthode pour obtenir un étudiant par son nom.
+     *
+     * @param nom Le nom de l'étudiant à rechercher.
+     * @return L'étudiant correspondant au nom spécifié, ou null si aucun étudiant ne correspond.
+     */
     public Etudiant getEtudiant(String nom) {
         Etudiant etudiantCherche = null;
         boolean trouve = false;
@@ -134,6 +183,12 @@ public class Promotion2 {
         return etudiantCherche;
     }
 
+    /**
+     * Méthode pour calculer la moyenne dans une matière spécifique de la promotion.
+     *
+     * @param i L'index de la matière pour laquelle calculer la moyenne.
+     * @return La moyenne dans la matière spécifiée.
+     */
     public double moyenneMatiere(int i) {
         double sommeMoyenne = 0;
         double moyenne = 0;
@@ -153,6 +208,11 @@ public class Promotion2 {
         return moyenne;
     }
 
+    /**
+     * Méthode pour obtenir une représentation en chaîne de caractères de la promotion.
+     *
+     * @return Une représentation en chaîne de caractères de la promotion.
+     */
     public String toString() {
         String stringFinal;
 

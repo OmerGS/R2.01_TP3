@@ -1,5 +1,6 @@
 /**
  * La classe Promotion représente une promotion d'étudiants.
+ * @author O.Gunes
  */
 public class Promotion {
     private String nom; // Le nom de la promotion
